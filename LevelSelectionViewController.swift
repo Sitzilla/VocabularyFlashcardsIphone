@@ -36,6 +36,7 @@ class LevelSelectionViewController: UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: FlashcardViewController = storyboard.instantiateViewController(withIdentifier: "flashcardView") as! FlashcardViewController
         
+        vc.languageCategory = button.titleLabel!.text!
         self.present(vc, animated: true, completion: nil)
     }
     

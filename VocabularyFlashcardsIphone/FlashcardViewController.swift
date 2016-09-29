@@ -10,9 +10,12 @@ import UIKit
 
 class FlashcardViewController: UIViewController {
 
+    var languageCategory:String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("Passed category: ", languageCategory)
         // Do any additional setup after loading the view.
     }
 
