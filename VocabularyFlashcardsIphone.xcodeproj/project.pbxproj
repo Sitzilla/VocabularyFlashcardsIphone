@@ -12,6 +12,8 @@
 		205EA4011D9D7CED007A862D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 205EA3FF1D9D7CED007A862D /* Main.storyboard */; };
 		205EA4031D9D7CED007A862D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 205EA4021D9D7CED007A862D /* Assets.xcassets */; };
 		205EA4061D9D7CED007A862D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 205EA4041D9D7CED007A862D /* LaunchScreen.storyboard */; };
+		205EA40E1D9D7E70007A862D /* LevelSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205EA40D1D9D7E70007A862D /* LevelSelectionViewController.swift */; };
+		2070E41D1D9D849900833F95 /* FlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2070E41C1D9D849900833F95 /* FlashcardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		205EA4021D9D7CED007A862D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		205EA4051D9D7CED007A862D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		205EA4071D9D7CED007A862D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		205EA40D1D9D7E70007A862D /* LevelSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelSelectionViewController.swift; path = ../LevelSelectionViewController.swift; sourceTree = "<group>"; };
+		2070E41C1D9D849900833F95 /* FlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,9 @@
 		205EA3FA1D9D7CED007A862D /* VocabularyFlashcardsIphone */ = {
 			isa = PBXGroup;
 			children = (
+				205EA40D1D9D7E70007A862D /* LevelSelectionViewController.swift */,
 				205EA3FB1D9D7CED007A862D /* AppDelegate.swift */,
+				2070E41C1D9D849900833F95 /* FlashcardViewController.swift */,
 				205EA3FD1D9D7CED007A862D /* ViewController.swift */,
 				205EA3FF1D9D7CED007A862D /* Main.storyboard */,
 				205EA4021D9D7CED007A862D /* Assets.xcassets */,
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205EA40E1D9D7E70007A862D /* LevelSelectionViewController.swift in Sources */,
 				205EA3FE1D9D7CED007A862D /* ViewController.swift in Sources */,
 				205EA3FC1D9D7CED007A862D /* AppDelegate.swift in Sources */,
+				2070E41D1D9D849900833F95 /* FlashcardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +307,7 @@
 				205EA40C1D9D7CED007A862D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
