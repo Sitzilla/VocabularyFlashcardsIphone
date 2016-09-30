@@ -13,6 +13,8 @@ class LevelSelectionViewController: UIViewController {
     var categories: NSMutableArray = []
     var globalY = 100
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dataRequest()
@@ -21,7 +23,7 @@ class LevelSelectionViewController: UIViewController {
     
     func createButton(category: String) {
         print("Button time!!")
-        let btn: UIButton = UIButton(frame: CGRect(x: 100, y: globalY, width: 100, height: 60))
+        let btn: UIButton = UIButton(frame: CGRect(x: 100, y: globalY, width: 150, height: 60))
         btn.backgroundColor = UIColor.orange
         btn.setTitle(category, for: UIControlState.normal)
         btn.addTarget(self, action: #selector(LevelSelectionViewController.buttonAction(_:)), for: UIControlEvents.touchUpInside)
@@ -32,6 +34,12 @@ class LevelSelectionViewController: UIViewController {
 
     func buttonAction(_ button: UIButton) {
         print("Button tapped")
+//        self.performSegue(withIdentifier: "FlashcardViewController", sender:self)
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc: FlashcardViewController = storyboard.instantiateViewController(withIdentifier: "flashcardView") as! FlashcardViewController
+        
+        vc.languageCategory = button.titleLabel!.text!
+        self.present(vc, animated: true, completion: nil)
     }
     
     func createButtons() {
