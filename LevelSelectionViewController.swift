@@ -13,12 +13,9 @@ class LevelSelectionViewController: UIViewController {
     var categories: NSMutableArray = []
     var globalY = 100
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         dataRequest()
-        print("----------------SECOND SCREEN----------------")
     }
     
     func createButton(category: String) {
@@ -33,13 +30,12 @@ class LevelSelectionViewController: UIViewController {
     }
 
     func buttonAction(_ button: UIButton) {
-        print("Button tapped")
-//        self.performSegue(withIdentifier: "FlashcardViewController", sender:self)
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: FlashcardViewController = storyboard.instantiateViewController(withIdentifier: "flashcardView") as! FlashcardViewController
-        
         vc.languageCategory = button.titleLabel!.text!
-        self.present(vc, animated: true, completion: nil)
+
+        let navController = UINavigationController(rootViewController: vc)
+        self.present(navController, animated:true, completion: nil)
     }
     
     func createButtons() {
@@ -54,7 +50,7 @@ class LevelSelectionViewController: UIViewController {
         let categoriesRequestUrl = URL(string: "http://vocabularyterms.herokuapp.com/korean/categories")
         var request = URLRequest(url:categoriesRequestUrl!)
         request.httpMethod = "GET"
-        
+
         // The data task retrieves the data.
         let client = session.dataTask(with: request as URLRequest) {
             data, response, error in
@@ -76,7 +72,11 @@ class LevelSelectionViewController: UIViewController {
                     
                     print("Data: ")
                     self.categories = weatherData
-                    self.createButtons()
+                    DispatchQueue.main.async {
+                      self.createButtons()
+                    }
+                    
+                    
                 }
                 catch let jsonError as NSError {
                     // An error occurred while trying to convert the data into a Swift dictionary.

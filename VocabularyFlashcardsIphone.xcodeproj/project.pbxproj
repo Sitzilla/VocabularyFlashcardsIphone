@@ -102,6 +102,7 @@
 				TargetAttributes = {
 					205EA3F71D9D7CEC007A862D = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = VQ345SZB64;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -268,11 +269,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VQ345SZB64;
 				INFOPLIST_FILE = VocabularyFlashcardsIphone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evansitzes.VocabularyFlashcardsIphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -280,11 +283,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VQ345SZB64;
 				INFOPLIST_FILE = VocabularyFlashcardsIphone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evansitzes.VocabularyFlashcardsIphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
