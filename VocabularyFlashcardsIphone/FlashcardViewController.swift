@@ -15,6 +15,7 @@ class FlashcardViewController: UIViewController {
     var words: NSMutableArray = []
     var currentWordIndex: Int = 0
     var categoriesEndpoint = "https://vocabularyterms.herokuapp.com/korean?category={category}"
+    var toggleWords = false
     
     @IBOutlet weak var remainingWords: UILabel!
     @IBOutlet weak var englishWord: UILabel!
@@ -27,11 +28,22 @@ class FlashcardViewController: UIViewController {
         let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(FlashcardViewController.goBack))
         navigationItem.leftBarButtonItem = backButton
 
+        let toggleButton = UIBarButtonItem(title: "Toggle", style: UIBarButtonItemStyle.plain, target: self, action: #selector(FlashcardViewController.toggleLanguage))
+        navigationItem.rightBarButtonItem = toggleButton
+        
         print("Passed category: ", languageCategory)
         dataRequest()
         // Do any additional setup after loading the view.
     }
 
+    func toggleLanguage(){
+        if (toggleWords) {
+            toggleWords = false
+        } else {
+            toggleWords = true
+        }
+    }
+    
     func goBack(){
         dismiss(animated: true, completion: nil)
     }
@@ -40,14 +52,23 @@ class FlashcardViewController: UIViewController {
         remainingWords.text = String(words.count) + " Remaining Words"
         
         if (words.count > 0) {
-            currentWordIndex = getRandomWordIndex()
-            let currentWord = words[currentWordIndex] as AnyObject
-            englishWord.text = currentWord["englishWord"] as? String
-            foreignWord.text = currentWord["foreignWord"] as? String
+            setText(currentWordIndex: getRandomWordIndex())
             UIView.animate(withDuration: 0.1, animations: { () -> Void in
                 self.foreignWord.isHidden = true
             })
         }
+    }
+    
+    func setText(currentWordIndex: Int) {
+        let currentWord = words[currentWordIndex] as AnyObject
+        if (toggleWords) {
+            englishWord.text = currentWord["englishWord"] as? String
+            foreignWord.text = currentWord["foreignWord"] as? String
+            return
+        }
+        
+        englishWord.text = currentWord["foreignWord"] as? String
+        foreignWord.text = currentWord["englishWord"] as? String
     }
     
     func getRandomWordIndex() -> Int {
