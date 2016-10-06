@@ -22,13 +22,20 @@ class FlashcardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Format navigation bar
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(FlashcardViewController.goBack))
+        navigationItem.leftBarButtonItem = backButton
 
-        categoriesEndpoint += languageCategory
         print("Passed category: ", languageCategory)
         dataRequest()
         // Do any additional setup after loading the view.
     }
 
+    func goBack(){
+        dismiss(animated: true, completion: nil)
+    }
+    
     func buildFlashcards() {
         remainingWords.text = String(words.count) + " Remaining Words"
         

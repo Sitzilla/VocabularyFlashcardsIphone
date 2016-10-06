@@ -30,13 +30,12 @@ class LevelSelectionViewController: UIViewController {
     }
 
     func buttonAction(_ button: UIButton) {
-        print("Button tapped")
-//        self.performSegue(withIdentifier: "FlashcardViewController", sender:self)
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: FlashcardViewController = storyboard.instantiateViewController(withIdentifier: "flashcardView") as! FlashcardViewController
-        
         vc.languageCategory = button.titleLabel!.text!
-        self.present(vc, animated: true, completion: nil)
+
+        let navController = UINavigationController(rootViewController: vc)
+        self.present(navController, animated:true, completion: nil)
     }
     
     func createButtons() {
