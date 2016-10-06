@@ -92,9 +92,9 @@ class FlashcardViewController: UIViewController {
                 // Case 2: Success
                 // We got a response from the server!
                 do {
-                    print("response:")
-                    print(response)
-                    self.deleteWord("hello world" as AnyObject)
+                    DispatchQueue.main.async {
+                        self.deleteWord("hello world" as AnyObject)
+                    }
                 }
                 catch let jsonError as NSError {
                     // An error occurred while trying to convert the data into a Swift dictionary.
@@ -135,7 +135,9 @@ class FlashcardViewController: UIViewController {
                         options: .mutableContainers) as! [String: AnyObject]
                     
                     self.words = response["words"] as! NSMutableArray
-                    self.buildFlashcards()
+                    DispatchQueue.main.async {
+                        self.buildFlashcards()
+                    }
                 }
                 catch let jsonError as NSError {
                     // An error occurred while trying to convert the data into a Swift dictionary.
