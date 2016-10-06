@@ -10,11 +10,20 @@ import UIKit
 
 class LevelSelectionViewController: UIViewController {
 
+//    var scrollView: UIScrollView!
+    let scrollView = UIScrollView(frame: UIScreen.main.bounds)
+    var containerView = UIView()
     var categories: NSMutableArray = []
     var globalY = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view = self.scrollView
+        self.scrollView.contentSize = CGSize(width:350, height: 3000)
+        self.scrollView.backgroundColor = UIColor.blue
+        presentingViewController?.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        presentingViewController?.present(self, animated: true, completion: nil)
+        
         dataRequest()
     }
     
@@ -26,6 +35,7 @@ class LevelSelectionViewController: UIViewController {
         btn.addTarget(self, action: #selector(LevelSelectionViewController.buttonAction(_:)), for: UIControlEvents.touchUpInside)
 //        btn.tag = 1               // change tag property
         self.view.addSubview(btn) // add to view as subview
+//        containerView.addSubview(btn)
         globalY += 70
     }
 
@@ -39,6 +49,14 @@ class LevelSelectionViewController: UIViewController {
     }
     
     func createButtons() {
+//        self.scrollView = UIScrollView()
+////        self.scrollView.delegate = self
+//        self.scrollView.contentSize = CGSize(width: 200, height: 200)
+//        
+//        containerView = UIView()
+//        scrollView.addSubview(containerView)
+//        view.addSubview(scrollView)
+        
         for i in 0..<categories.count {
             print("Cat:", categories[i])
             createButton(category: categories[i] as! String)
