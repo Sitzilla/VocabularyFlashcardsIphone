@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     func showLevelSelection(buttonText: String) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: LevelSelectionViewController = storyboard.instantiateViewController(withIdentifier: "selectionView") as! LevelSelectionViewController
-        vc.language = buttonText
+        vc.language = buttonText.lowercased()
         
         let navController = UINavigationController(rootViewController: vc)
         self.present(navController, animated:true, completion: nil)

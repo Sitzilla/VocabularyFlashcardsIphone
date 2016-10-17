@@ -43,7 +43,8 @@ class LevelSelectionViewController: UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: FlashcardViewController = storyboard.instantiateViewController(withIdentifier: "flashcardView") as! FlashcardViewController
         vc.languageCategory = button.titleLabel!.text!
-
+        vc.language = language
+        
         let navController = UINavigationController(rootViewController: vc)
         self.present(navController, animated:true, completion: nil)
     }
@@ -58,7 +59,7 @@ class LevelSelectionViewController: UIViewController {
     
     func dataRequest() {
         let session = URLSession.shared
-        let categoriesRequestUrl = URL(string: "http://vocabularyterms.herokuapp.com/korean/categories")
+        let categoriesRequestUrl = URL(string: "http://vocabularyterms.herokuapp.com/" + language + "/categories")
         var request = URLRequest(url:categoriesRequestUrl!)
         request.httpMethod = "GET"
 
