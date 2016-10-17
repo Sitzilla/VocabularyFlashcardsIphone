@@ -12,6 +12,7 @@ import Foundation
 class FlashcardViewController: UIViewController {
 
     var languageCategory: String = ""
+    var language: String = ""
     var words: NSMutableArray = []
     var currentWordIndex: Int = 0
     var categoriesEndpoint = "https://vocabularyterms.herokuapp.com/korean?category={category}"
@@ -32,8 +33,6 @@ class FlashcardViewController: UIViewController {
 
         let toggleButton = UIBarButtonItem(title: "Toggle", style: UIBarButtonItemStyle.plain, target: self, action: #selector(FlashcardViewController.toggleLanguage))
         navigationItem.rightBarButtonItem = toggleButton
-        
-        print("Passed category: ", languageCategory)
         
 //        if (words.count == 0) {
             dataRequest()
@@ -148,7 +147,7 @@ class FlashcardViewController: UIViewController {
         let currentIdAsString = "\(currentIdAsInt)"
 
         print("ID is:", currentIdAsString)
-        let increaseEndpoint = "https://vocabularyterms.herokuapp.com/korean/" + currentIdAsString + "/increase"
+        let increaseEndpoint = "https://vocabularyterms.herokuapp.com/" + language + "/" + currentIdAsString + "/increase"
         print(increaseEndpoint)
     
         let session = URLSession.shared
@@ -189,7 +188,7 @@ class FlashcardViewController: UIViewController {
     
     func dataRequest() {
         let session = URLSession.shared
-        let url: String = "http://vocabularyterms.herokuapp.com/korean?category=" + languageCategory
+        let url: String = "http://vocabularyterms.herokuapp.com/" + language + "?category=" + languageCategory
         let categoriesRequestUrl = URL(string: url)
         var request = URLRequest(url:categoriesRequestUrl!)
         request.httpMethod = "GET"

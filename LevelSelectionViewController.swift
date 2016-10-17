@@ -10,6 +10,7 @@ import UIKit
 
 class LevelSelectionViewController: UIViewController {
 
+    var language: String = ""
     let scrollView = UIScrollView(frame: UIScreen.main.bounds)
     var categories: NSMutableArray = []
     var globalY = 100
@@ -17,14 +18,20 @@ class LevelSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let viewcolor = self.view.backgroundColor
-        
+
         // Set scrolling view
         self.view = self.scrollView
         self.scrollView.backgroundColor = viewcolor
-        presentingViewController?.modalPresentationStyle = UIModalPresentationStyle.currentContext
-        presentingViewController?.present(self, animated: true, completion: nil)
+        
+        // Format navigation bar
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(LevelSelectionViewController.goBack))
+        navigationItem.leftBarButtonItem = backButton
         
         dataRequest()
+    }
+    
+    func goBack(){
+        dismiss(animated: true, completion: nil)
     }
     
     func createButton(category: String) {
@@ -42,7 +49,8 @@ class LevelSelectionViewController: UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: FlashcardViewController = storyboard.instantiateViewController(withIdentifier: "flashcardView") as! FlashcardViewController
         vc.languageCategory = button.titleLabel!.text!
-
+        vc.language = language
+        
         let navController = UINavigationController(rootViewController: vc)
         self.present(navController, animated:true, completion: nil)
     }
@@ -57,7 +65,7 @@ class LevelSelectionViewController: UIViewController {
     
     func dataRequest() {
         let session = URLSession.shared
-        let categoriesRequestUrl = URL(string: "http://vocabularyterms.herokuapp.com/korean/categories")
+        let categoriesRequestUrl = URL(string: "http://vocabularyterms.herokuapp.com/" + language + "/categories")
         var request = URLRequest(url:categoriesRequestUrl!)
         request.httpMethod = "GET"
 
