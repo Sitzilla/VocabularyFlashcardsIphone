@@ -10,6 +10,7 @@ import UIKit
 
 class LevelSelectionViewController: UIViewController {
 
+    var language: String = ""
     let scrollView = UIScrollView(frame: UIScreen.main.bounds)
     var categories: NSMutableArray = []
     var globalY = 100
@@ -17,13 +18,13 @@ class LevelSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let viewcolor = self.view.backgroundColor
-        
+
         // Set scrolling view
         self.view = self.scrollView
         self.scrollView.backgroundColor = viewcolor
-        presentingViewController?.modalPresentationStyle = UIModalPresentationStyle.currentContext
-        presentingViewController?.present(self, animated: true, completion: nil)
         
+        print("Passed category: ", language)
+
         dataRequest()
     }
     

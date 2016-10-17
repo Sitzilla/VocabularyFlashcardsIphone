@@ -31,7 +31,25 @@
                                 <color key="backgroundColor" red="0.79106544819738067" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Korean"/>
                                 <connections>
-                                    <segue destination="iSM-2G-vCz" kind="show" id="xc2-9a-j9W"/>
+                                    <action selector="koreanLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sgo-4U-9VT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uze-ur-wFo">
+                                <frame key="frameInset" minX="102" minY="337" width="171" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.79106544820000002" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Japanese"/>
+                                <connections>
+                                    <action selector="japaneseLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AXh-eO-VkK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PW-Vp-Gi4">
+                                <frame key="frameInset" minX="102" minY="499" width="171" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.79106544820000002" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Chinese"/>
+                                <connections>
+                                    <action selector="chineseLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mDm-d9-Cp5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -45,7 +63,7 @@
         <!--Level Selection View Controller-->
         <scene sceneID="sqF-Me-wBt">
             <objects>
-                <viewController id="iSM-2G-vCz" customClass="LevelSelectionViewController" customModule="VocabularyFlashcardsIphone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="selectionView" id="iSM-2G-vCz" customClass="LevelSelectionViewController" customModule="VocabularyFlashcardsIphone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="adM-n5-5cA"/>
                         <viewControllerLayoutGuide type="bottom" id="kJg-Km-QzR"/>
