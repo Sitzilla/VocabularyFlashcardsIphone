@@ -34,8 +34,6 @@ class FlashcardViewController: UIViewController {
         let toggleButton = UIBarButtonItem(title: "Toggle", style: UIBarButtonItemStyle.plain, target: self, action: #selector(FlashcardViewController.toggleLanguage))
         navigationItem.rightBarButtonItem = toggleButton
         
-        print("Passed category: ", languageCategory)
-        
 //        if (words.count == 0) {
             dataRequest()
 //        }

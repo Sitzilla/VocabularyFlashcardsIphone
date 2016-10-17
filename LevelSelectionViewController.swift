@@ -23,9 +23,15 @@ class LevelSelectionViewController: UIViewController {
         self.view = self.scrollView
         self.scrollView.backgroundColor = viewcolor
         
-        print("Passed category: ", language)
-
+        // Format navigation bar
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(LevelSelectionViewController.goBack))
+        navigationItem.leftBarButtonItem = backButton
+        
         dataRequest()
+    }
+    
+    func goBack(){
+        dismiss(animated: true, completion: nil)
     }
     
     func createButton(category: String) {
