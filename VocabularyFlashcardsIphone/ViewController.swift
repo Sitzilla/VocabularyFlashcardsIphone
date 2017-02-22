@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         showLevelSelection(buttonText: button.titleLabel!.text!)
     }
     
+    @IBAction func spanishLanguage(_ button: UIButton) {
+        showLevelSelection(buttonText: button.titleLabel!.text!)
+    }
+    
     func showLevelSelection(buttonText: String) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: LevelSelectionViewController = storyboard.instantiateViewController(withIdentifier: "selectionView") as! LevelSelectionViewController

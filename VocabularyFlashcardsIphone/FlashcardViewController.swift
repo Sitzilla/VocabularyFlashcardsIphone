@@ -14,6 +14,7 @@ class FlashcardViewController: UIViewController {
     var languageCategory: String = ""
     var language: String = ""
     var words: NSMutableArray = []
+    var tempWords: NSMutableArray = []
     var currentWordIndex: Int = 0
     var categoriesEndpoint = "https://vocabularyterms.herokuapp.com/korean?category={category}"
     var toggleWords = false
@@ -38,8 +39,6 @@ class FlashcardViewController: UIViewController {
             dataRequest()
 //        }
         
-//        writeToFile()
-//        readFromFile()
         
     }
     
@@ -56,8 +55,6 @@ class FlashcardViewController: UIViewController {
             do {
                 let text2: String = try String(contentsOf: path, encoding: String.Encoding.utf8)
                 print("Read from file: ", text2)
-                
-//                self.words = text2 as! NSMutableArray
             }
             catch {/* error handling here */}
         }
@@ -69,14 +66,9 @@ class FlashcardViewController: UIViewController {
         let cocoaArray : NSArray = words
         
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            
+
             let path = dir.appendingPathComponent(dataFile)
-            
-            //writing
-            do {
-                try cocoaArray.write(to: path, atomically: false)
-            }
-            catch {/* error handling here */}
+            cocoaArray.write(toFile: "\(path)", atomically:true);
         }
         
     }
@@ -216,6 +208,8 @@ class FlashcardViewController: UIViewController {
                     self.writeToFile()
                     DispatchQueue.main.async {
                         self.buildFlashcards()
+//                        self.writeToFile()
+//                        self.readFromFile()
                     }
                 }
                 catch let jsonError as NSError {
